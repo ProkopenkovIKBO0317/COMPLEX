@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "complex.h"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -21,7 +22,7 @@ void print_menu(int select)
 	cout << "------------------------" << endl;
 }
 
-void toString(complex *c)
+void toString(Complex c)
 {
 	cout << "Your complex number is (" << c->real << ';' << c->imag << ')' << endl;
 }
@@ -33,7 +34,7 @@ Complex ComplexCreate(Complex c1)
 	return c1;
 }
 
-Complex complexSum(complex *c1, complex *c2)
+Complex complexSum(Complex c1, Complex c2)
 {
 	return ComplexCreate(c1->real + c2->real, c1->imag + c2->real);
 }
