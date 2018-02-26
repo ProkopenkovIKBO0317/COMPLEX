@@ -13,9 +13,10 @@ typedef struct complex
 }complex;
 
 void print_error();
+void toString(Complex c);
 void print_menu(int select);
-Complex ComplexCreate(double real, double imag);
-Complex complexSum(complex *c1, complex *c2);
+Complex ComplexCreate(Complex c1);
+Complex complexSum(Complex c1, Complex c2);
 
 
 
