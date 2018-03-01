@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 	int select = 0;
-	Complex c1 = 0;
+	complex c1, c2, c3;
 
 	print_menu(select);
 	cin >> select;
@@ -17,14 +17,19 @@ int main()
 	switch (select)
 	{
 	case 1:
-		ComplexCreate(c1->real, c1->imag);
-		toString(c1);
+		EnterComplex(&c1, &c2);
+		c3 = complexSum(&c1, &c2);
+		print_Complex(&c3);
 		break;
 
 	case 2:
+		EnterComplex(&c1, &c2);
+		c3 = complexSubstraction(&c1, &c2);
+		print_Complex(&c3);
 		break;
 
 	case 3:
+
 		break;
 
 	case 4:
