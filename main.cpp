@@ -10,6 +10,7 @@ int main()
 {
 	int select = 0;
 	complex c1, c2, c3;
+	double c;
 
 	print_menu(select);
 	cin >> select;
@@ -29,10 +30,13 @@ int main()
 		break;
 
 	case 3:
-
+		EnterComplex(&c1, &c2);
+		c = complexMultiply(&c1, &c2);
+		cout << "Multiplication = " << c << endl;
 		break;
 
 	case 4:
+
 		break;
 
 	case 5:
