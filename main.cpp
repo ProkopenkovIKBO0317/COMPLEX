@@ -8,38 +8,51 @@ using namespace std;
 
 int main()
 {
-	int select = 0;
-	complex c1, c2, c3;
-	double c;
+	char select = ' ';
+	Complex c1 = new complex;
+	Complex c2 = new complex;
+	complex c3;
+	double mod;
+
 
 	print_menu(select);
 	cin >> select;
 
 	switch (select)
 	{
-	case 1:
-		EnterComplex(&c1, &c2);
-		c3 = complexSum(&c1, &c2);
+	case '+':
+		EnterComplex(c1);
+		EnterComplex(c2);
+		c3 = complexSum(c1, c2);
 		print_Complex(&c3);
 		break;
 
-	case 2:
-		EnterComplex(&c1, &c2);
-		c3 = complexSubstraction(&c1, &c2);
+	case '-':
+		EnterComplex(c1);
+		EnterComplex(c2);
+		c3 = complexSubstraction(c1, c2);
 		print_Complex(&c3);
 		break;
 
-	case 3:
-		EnterComplex(&c1, &c2);
-		c = complexMultiply(&c1, &c2);
-		cout << "Multiplication = " << c << endl;
+	case '*':
+		EnterComplex(c1);
+		EnterComplex(c2);
+		c3 = complexMultiply(c1, c2);
+		print_Complex(&c3);
 		break;
 
-	case 4:
-
+	case '/':
+		EnterComplex(c1);
+		EnterComplex(c2);
+		c3 = complexDivision(c1, c2);
+		print_Complex(&c3);
 		break;
 
-	case 5:
+	case 'M':
+	case 'm':
+		EnterComplex(c1);
+		mod = complexModulo(c1);
+		cout << "Modulo = " << mod << endl;
 		break;
 
 	default:
@@ -48,7 +61,14 @@ int main()
 	}
 
 	system("pause");
+	delete c1;
+	delete c2;
 }
+
+
+
+
+
 
 
 
