@@ -1,76 +1,89 @@
 #include "stdafx.h"
-#include <iostream>
 #include "complex.h"
 #include <math.h>
+#include <iostream>
+
 
 using namespace std;
 
-
-int main()
+void print_error()
 {
-	char select = ' ';
-	Complex c1 = new complex;
-	Complex c2 = new complex;
-	complex c3;
-	double mod;
 
+	cout << "Error, this symbol is not supported" << endl;
 
-	print_menu(select);
-	cin >> select;
+}
 
-	switch (select)
-	{
-	case '+':
-		EnterComplex(c1);
-		EnterComplex(c2);
-		c3 = complexSum(c1, c2);
-		print_Complex(&c3);
-		break;
+void print_menu(char select)
+{
 
-	case '-':
-		EnterComplex(c1);
-		EnterComplex(c2);
-		c3 = complexSubstraction(c1, c2);
-		print_Complex(&c3);
-		break;
+	cout << "Enter operation" << endl;
+	cout << "------------------------" << endl;
+	cout << "'+' Sum" << endl;
+	cout << "'-' Substraction" << endl;
+	cout << "'*' Multiplication" << endl;
+	cout << "'/' Division" << endl;
+	cout << "'M' or 'm' Modulo of complex number" << endl;
+	cout << "------------------------" << endl;
 
-	case '*':
-		EnterComplex(c1);
-		EnterComplex(c2);
-		c3 = complexMultiply(c1, c2);
-		print_Complex(&c3);
-		break;
+}
 
-	case '/':
-		EnterComplex(c1);
-		EnterComplex(c2);
-		c3 = complexDivision(c1, c2);
-		print_Complex(&c3);
-		break;
+Complex print_Complex(Complex c)
+{
+	cout << "Real part is: " << c->real << endl;
+	cout << "Imagine part is: " << c->imag << endl;
+	cout << "Complex number is: (" << c->real << ';' << c->imag << "i)" << endl;
 
-	case 'M':
-	case 'm':
-		EnterComplex(c1);
-		mod = complexModulo(c1);
-		cout << "Modulo = " << mod << endl;
-		break;
-
-	default:
-		print_error();
-		break;
-	}
-
-	system("pause");
-	delete c1;
-	delete c2;
+	return c;
 }
 
 
+Complex EnterComplex(Complex a)
+{
+	cout << "Enter complex number: real/imag" << endl;
+	cin >> a->real >> a->imag;
 
+	return a;
+}
 
+complex complexSum(Complex a, Complex b)
+{
+	complex c;
 
+	c.real = a->real + b->real;
+	c.imag = a->imag + b->imag;
 
+	return c;
+}
 
+complex complexSubstraction(Complex a, Complex b)
+{
+	complex c;
 
+	c.real = a->real - b->real;
+	c.imag = a->imag - b->imag;
 
+	return c;
+}
 
+complex complexMultiply(Complex a, Complex b)
+{
+	complex c;
+	c.real = (a->real * b->real - a->imag * b->imag);
+	c.imag = (a->real * b->imag + b->real * a->imag);
+	return c;
+}
+
+complex complexDivision(Complex a, Complex b)
+{
+	complex c;
+	c.real = ((a->real * b->real + a->imag * b->imag)/(b->real*b->real + b->imag*b->imag));
+	c.imag = ((b->real * a->imag - a->real * b->imag) / (b->real*b->real + b->imag*b->imag));
+	return c;
+}
+
+int complexModulo(Complex a)
+{
+	int mod;
+	mod = sqrt(pow(a->real, 2)+ pow(a->imag, 2));
+	return mod;
+}
