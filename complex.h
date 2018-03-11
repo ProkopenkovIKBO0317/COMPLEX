@@ -13,13 +13,15 @@ typedef struct complex
 
 void print_error();
 
-void print_menu(int select);
+void print_menu(char select);
 
 Complex print_Complex(Complex c);
-complex EnterComplex(Complex a, Complex b);
+Complex EnterComplex(Complex a);
 complex complexSum(Complex a, Complex b);
 complex complexSubstraction(Complex a, Complex b);
-double complexMultiply(Complex a, Complex b);
+complex complexMultiply(Complex a, Complex b);
+complex complexDivision(Complex a, Complex b);
+int complexModulo(Complex a);
 
 
 
