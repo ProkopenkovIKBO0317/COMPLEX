@@ -3,26 +3,24 @@
 #include <cmath>
 #include <string.h>
 
-typedef struct complex * Complex;
-
-typedef struct complex
+class complex
 {
+public:
 	double real;
 	double imag;
-}complex;
 
+	complex print_Complex(complex *a, complex *b);
+	complex EnterComplex(complex *a);
+	complex complexSum(complex *a, complex *b);
+	complex complexSubstraction(complex *a, complex *b);
+	complex complexMultiply(complex *a, complex *b);
+	complex complexDivision(complex *a, complex *b);
+
+
+};
+
+int complexModulo(complex *a);
 void print_error();
-
 void print_menu(char select);
-
-Complex print_Complex(Complex c);
-Complex EnterComplex(Complex a);
-complex complexSum(Complex a, Complex b);
-complex complexSubstraction(Complex a, Complex b);
-complex complexMultiply(Complex a, Complex b);
-complex complexDivision(Complex a, Complex b);
-int complexModulo(Complex a);
-
-
 
 #endif  COMPLEX
