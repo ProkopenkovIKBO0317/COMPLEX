@@ -27,63 +27,57 @@ void print_menu(char select)
 
 }
 
-Complex print_Complex(Complex c)
+complex complex::print_Complex(complex *a, complex *b)
 {
-	cout << "Real part is: " << c->real << endl;
-	cout << "Imagine part is: " << c->imag << endl;
-	cout << "Complex number is: (" << c->real << ';' << c->imag << "i)" << endl;
+	cout << "Real part is: " << a->real << endl;
+	cout << "Imagine part is: " << b->imag << endl;
+	cout << "Complex number is: (" << a->real << ';' << b->imag << "i)" << endl;
 
-	return c;
+	return *a, *b;
 }
 
 
-Complex EnterComplex(Complex a)
+
+ complex complex::EnterComplex(complex *a)
 {
 	cout << "Enter complex number: real/imag" << endl;
 	cin >> a->real >> a->imag;
 
-	return a;
+	return *a;
 }
 
-complex complexSum(Complex a, Complex b)
+complex complex::complexSum(complex *a, complex *b)
 {
-	complex c;
+	a->real = a->real + b->real;
+	b->imag = a->imag + b->imag;
+	return print_Complex(a,b);
 
-	c.real = a->real + b->real;
-	c.imag = a->imag + b->imag;
-
-	return c;
 }
 
-complex complexSubstraction(Complex a, Complex b)
+complex complex::complexSubstraction(complex *a, complex *b)
 {
-	complex c;
-
-	c.real = a->real - b->real;
-	c.imag = a->imag - b->imag;
-
-	return c;
+	a->real = a->real - b->real;
+	b->imag = a->imag - b->imag;
+	return print_Complex(a,b);
 }
 
-complex complexMultiply(Complex a, Complex b)
+complex complex::complexMultiply(complex *a, complex *b)
 {
-	complex c;
-	c.real = (a->real * b->real - a->imag * b->imag);
-	c.imag = (a->real * b->imag + b->real * a->imag);
-	return c;
+	a->real = (a->real * b->real - a->imag * b->imag);
+	b->imag = (a->real * b->imag + b->real * a->imag);
+	return print_Complex(a,b);
 }
 
-complex complexDivision(Complex a, Complex b)
+complex complex::complexDivision(complex *a, complex *b)
 {
-	complex c;
-	c.real = ((a->real * b->real + a->imag * b->imag)/(b->real*b->real + b->imag*b->imag));
-	c.imag = ((b->real * a->imag - a->real * b->imag) / (b->real*b->real + b->imag*b->imag));
-	return c;
+	a->real = ((a->real * b->real + a->imag * b->imag)/(b->real*b->real + b->imag*b->imag));
+	b->imag = ((b->real * a->imag - a->real * b->imag) / (b->real*b->real + b->imag*b->imag));
+	return print_Complex(a,b);
 }
 
-int complexModulo(Complex a)
+int complexModulo(complex *a)
 {
 	int mod;
-	mod = sqrt(pow(a->real, 2)+ pow(a->imag, 2));
+	mod = sqrt(pow(a->real, 2) + pow(a->imag, 2));
 	return mod;
 }
