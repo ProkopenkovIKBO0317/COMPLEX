@@ -44,7 +44,17 @@ complex complex::print_Complex(complex *a, complex *b)
 	cin >> a->real >> a->imag;
 
 	return *a;
-}
+} 
+
+ complex complex::EnterComplex(complex *a, complex *b)
+ {
+	 cout << "Enter the first complex number: real/imag" << endl;
+	 cin >> a->real >> a->imag;
+	 cout << "Enter the second complex number: real/imag" << endl;
+	 cin >> b->real >> b->imag;
+
+	 return *a, *b;
+ }
 
 complex complex::complexSum(complex *a, complex *b)
 {
@@ -75,9 +85,9 @@ complex complex::complexDivision(complex *a, complex *b)
 	return print_Complex(a,b);
 }
 
-int complexModulo(complex *a)
+double complex::complexModulo(complex *a) 
 {
-	int mod;
 	mod = sqrt(pow(a->real, 2) + pow(a->imag, 2));
+	cout << "Modulo is = " << mod << endl;
 	return mod;
 }
